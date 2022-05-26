@@ -1,0 +1,44 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h1>{{ cadeira.nome }}</h1>
+    <p>Informações relativamente à disciplina de {{ cadeira.nome }}:</p>
+    <ul>
+        <div class="espacamento">
+            <li>Ano: {{ cadeira.ano }}</li>
+            <li>Semestre: {{ cadeira.semestre }}</li>
+            <li>ECTS: {{ cadeira.ects }}</li>
+            <li>Ano Letivo frequentado: {{ cadeira.anoLetivoFrequentado }}</li>
+            <li>Tópicos abordados: {{ cadeira.topicosAbordados }}</li>
+            <li>Ranking: {{ cadeira.ranking }} estrelas</li>
+            <div class="espacamento2"></div>
+            <li>Professores:</li>
+            <ul>
+                {% for professor in professores %}
+                    <div class="espacamento">
+                            
+                        <li>Nome: {{ professor.nome }}</li>  
+                        <li><a href="{{ professor.linkPaginaLusofona }}">Página da Lusófona</a></li>
+                        <li><a href="{{ professor.linkPaginaLinkedin }}">Página da LinkedIn</a></li>
+                    </div>
+                {% endfor %}
+            </ul>
+            <li>Projetos:</li>
+            <ul>
+                <div class="espacamento">
+                    <li>
+                        {% for projeto in projetos %}
+                            {{ projeto.titulo }}
+                        {% endfor %}
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </ul>
+    
+
+    <a href="{% url 'portfolio:apresentacao' %}" class="espacamento">Voltar</a>
+
+{% endblock %}
+
+

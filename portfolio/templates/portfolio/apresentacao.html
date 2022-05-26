@@ -1,0 +1,127 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h2>Apresentação</h2><br>
+    <p>
+        Nesta página irei apresentar a estrutura do curso, com cadeiras divididas por semestres e anos
+        juntamente com ETCS, ano letivo frequentado, nome de professores e projetos associados.
+    </p>
+
+    <p>
+        Em seguida, relato a formação que tive até chegar ao Ensino Superior, passando por Ensino
+        Secundário juntamente com certificados que me foram atribuidos nesse mesmo período.
+    </p>
+
+    <p>
+        Por fim, apresento as minhas aptidões e competências pessoais bem como os meus hobbies.
+    </p>
+    <div class="espacamento"></div>
+
+    <ol>
+        <li><h3>Licenciatura</h3></li>
+        <p>Esta página apresenta a lista de cadeiras do curso de Engenharia Informática, organizada por semestre e 
+            anos.
+        </p>
+        <div class="espacamento"></div>
+            
+        <h4>1º Ano</h4>
+        <div class="espacamento2"></div>
+        <p>1º Semestre</p>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano1.semestre1 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>      
+        </ul>
+
+        <p>2º Semestre</p>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano1.semestre2 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
+        <div class="espacamento2"></div>
+
+        <h4>2º Ano</h4>
+        <div class="espacamento2"></div>
+        <p>1º Semestre</p>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano2.semestre1 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
+
+        <p>2º Semestre</p>
+        <div class="espacamento2"></div>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano2.semestre2 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
+        <div class="espacamento2"></div>
+
+        <h4>3º Ano</h4>
+        <div class="espacamento2"></div>
+        <p>1º Semestre</p>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano3.semestre1 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
+
+        <p>2º Semestre</p>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano2.semestre2 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
+        <div class="espacamento2"></div>
+
+        <p>Anual</p>
+        <ul style="list-style-type:none;">
+            <div class="espacamento">
+                {% for cadeira in mapa.ano3.semestre3 %}
+                    <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
+        <div class="espacamento"></div>
+
+        <li><h3>Educação</h3></li>
+        <p></p>
+
+
+
+        <li><h3>Aptidões e competências pessoais</h3></li>
+        <p></p>
+
+
+        <li><h3>Interesses e hobbies</h3></li>
+        <ul style="list-style-type:square">Neste momento os meus hobbies são os seguintes:
+            <div class="espacamento">
+                <li>Ginásio;</li>
+                <li>Culinária;</li>
+                <li>Leitura;</li>
+            </div>
+        </ul>
+    </ol>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+* {
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+  
+header {
+    height: 10vh; 
+    background: rgb(78, 136, 130);
+    color: white;
+    top: 0;
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+}
+  
+header div {
+    font-size: 2em;  
+    padding: 1em;
+}
+  
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    color: white;  
+}
+  
+nav a {
+    padding: 0 1em;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: blanchedalmond;
+    font-weight: bold;
+}
+
+.cadeira a:link {
+    color: blue;
+}
+  
+.cadeira a:visited {
+    color: blue;
+}
+  
+.cadeira a:hover {
+    color: greenyellow;
+}
+  
+a:active {
+    color: orangered;
+}
+
+
+main {
+    height: 80vh;
+    background-color:lightcyan;
+    padding: 4em 4em;
+    flex: 1;
+}
+
+main.home {
+    height: 90vh;
+    background-image: url("../images/imagem_portfolio.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+article.first {
+    height: 40vh;
+    background: black;
+    padding: 0 4vw;
+    text-align: center;
+    font-size: 2rem;
+}
+
+div.home {
+    height: 50vh;
+    position: relative;
+    top: 20px; 
+    left: 100px;
+    width: 400px; 
+    height: 300px;
+
+    text-align: center;
+}
+  
+article.second {
+    height: 80vh;
+    background-image: url("../images/lista-documentos.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    align-items: start;
+}
+
+div.espacamento {
+    padding: 20px;
+}
+
+div.espacamento2 {
+    padding: 1px;
+}
+
+footer {
+    height: 10vh;
+    padding: 1px;
+    display: flex;
+    font-weight: bold;
+    justify-content: flex-end;
+    padding: 0 2vw;
+    align-items: center;
+    background-color: grey;
+    color: rgb(18, 0, 0);
+}
+  
