@@ -124,7 +124,7 @@ div.espacamento2 {
     padding: 2px;
 }
 
-.dicas {
+.comentarios {
     display: flex;
     justify-content: space-around;
     align-items: space round;
@@ -133,7 +133,7 @@ div.espacamento2 {
     flex-flow: row wrap;
 }
 
-.dicas div {
+.comentarios div {
     width: 250px;
     height: 300px;
     background-color: white;
