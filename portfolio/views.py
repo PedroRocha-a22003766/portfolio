@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cadeira, Pessoa, Projeto
+from .models import Cadeira, Pessoa, Projeto, Competencia, Tecnologia, Perfil
 
 # Create your views here.
 
@@ -42,23 +42,30 @@ def cadeira_view(request, id):
 def projetos_view(request):
 	projetos = Projeto.objects.all()
 
-	for projeto in projetos:	
-		print(projeto)
-	return render(request, 'portfolio/projetos.html')
+	return render(request, 'portfolio/projetos.html', {'projetos': projetos})
 
 
 def web_view(request):
-	return render(request, 'portfolio/web.html')
+	tecnologias = Tecnologia.objects.all()
+
+	return render(request, 'portfolio/web.html', {'tecnologias': tecnologias})
+
+def descricaoWeb_view(request):
+	tecnologia = Tecnologia.objects.all()
+	
+	return render(request, 'portfolio/descricaoWeb.html', {'tecnologia': tecnologia})
 
 
 def blog_view(request):
 	return render(request, 'portfolio/blog.html')
 
 
+def sobre_view(request):
+	return render(request, 'portfolio/sobre.html')
+
+
 def contactos_view(request):
-	return render(request, 'portfolio/contactos.html')
+	perfis = Perfil.objects.all()
 
-
-def rodape_view(request):
-	return render(request, 'portfolio/rodape.html')
+	return render(request, 'portfolio/contactos.html', {'perfis': perfis})
 

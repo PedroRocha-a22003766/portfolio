@@ -2,6 +2,7 @@
 
 {% block main %}
     <h1>{{ cadeira.nome }}</h1>
+    <div class="espacamento2"></div>
     <p>Informações relativamente à disciplina de {{ cadeira.nome }}:</p>
     <ul>
         <div class="espacamento">
@@ -16,21 +17,19 @@
             <ul>
                 {% for professor in professores %}
                     <div class="espacamento">
-                            
                         <li>Nome: {{ professor.nome }}</li>  
                         <li><a href="{{ professor.linkPaginaLusofona }}">Página da Lusófona</a></li>
-                        <li><a href="{{ professor.linkPaginaLinkedin }}">Página da LinkedIn</a></li>
-                    </div>
+                        <li><a href="{{ professor.linkPaginaLinkedin }}">Página do LinkedIn</a></li>  
+                    </div>   
                 {% endfor %}
+
             </ul>
             <li>Projetos:</li>
             <ul>
                 <div class="espacamento">
-                    <li>
-                        {% for projeto in projetos %}
-                            {{ projeto.titulo }}
-                        {% endfor %}
-                    </li>
+                    {% for projeto in projetos %}
+                        <li>{{ projeto.titulo }}</li>
+                    {% endfor %}
                 </div>
             </ul>
         </div>

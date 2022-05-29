@@ -1,14 +1,23 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h2>Projetos...</h2><br>
-    <p>Bem-vindos ao meu portfólio digital. O meu nome é Pedro Rocha e, atualmente, frequento o 2º ano da
-        licenciatura do curso de <b>Engenharia Informática</b> na Universidade Lusófona de Humanidades
-        e Tecnologias.
-    </p><br>
+    <h2>Projetos...</h2>
+    <div class="espacamento2"></div>
+    <p>Nesta página irei apresentar todos os projetos que foram realizados por mim, seja pela faculdade, seja por livre vontade.</p>
+    <div class="espacamento2"></div>
+    <p>Irei apresentar, também, trabalhos/projetos de fim de curso bastante interessantes e cativadores.</p>
+    <div class="espacamento"></div>
 
     <ol>
         <li><h3>...realizados por mim</h3></li>
+        <div class="espacamento">
+            {% for projeto in projetos %}
+                <ul style="list-style-type:square">
+                    <li>{{projeto.titulo}};</li>
+                </ul> 
+            {% endfor %}
+        </div>
+
         <li><h3>...de fim de curso interessantes</h3></li>
     </ol>
 

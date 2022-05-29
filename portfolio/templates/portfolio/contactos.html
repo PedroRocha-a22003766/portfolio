@@ -1,6 +1,49 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h3>Contactos</h3>
-    <p>texto</p>
+    <h2>Contactos</h2>
+    <div class="espacamento2"></div>
+    <p>Nesta página disponibilizo diversas informações como links associados ao percurso académico bem como redes sociais, contacto, ano, universidade e logotipo.</p>
+    <div class="espacamento"></div>
+    <p>Informações:</p>
+    <ul style="list-style-type:square;">
+        <div class="espacamento">
+            {% for perfil in perfis %}
+                <a href= "{{ perfil.linkedin }}">LinkedIn</a>
+                <div class="espacamento2"></div>
+                <a href="{{ perfil.github }}">GitHub</a>
+                <div class="espacamento2"></div>
+                <a href="{{ perfil.facebook }}">Facebook</a>
+                <div class="espacamento2"></div>
+                <a href="{{ perfil.instagram }}">Instagram</a>
+                <div class="espacamento2"></div>
+            {% endfor %}    
+        </div>
+    </ul>
+    <div class="espacamento"></div>
+
+    <h2>Rodapé</h2>
+    <div class="espacamento">
+        {% for perfil in perfis %}
+            <a href="{{ perfil.mapaSite }}">Mapa do Site</a>
+            <div class="espacamento2"></div>
+            <p>Contacto : {{ perfil.contacto }}</p>
+            <div class="espacamento2"></div>
+            <p>Nome Autor : {{ perfil.nome }}</p>
+            <div class="espacamento2"></div>
+            <p>Ano : {{ perfil.ano }}º ano</p>
+            <div class="espacamento2"></div>
+            <p>Universidade : {{ perfil.universidade }}</p>
+            <div class="espacamento2"></div>
+            <p>Logotipo : </p>
+            {% load static %}
+            <img src="{% static 'portfolio/images/logo_ulht.jpg' %}" alt="LogotipoFaculdade">
+        {% endfor %}
+        
+    </div>
+            
+    
+
+
 {% endblock %}
+<!--{% url 'https://www.linkedin.com/in/pedro-rocha-9a30aa209/' %}-->

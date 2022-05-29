@@ -1,7 +1,8 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h2>Apresentação</h2><br>
+    <h2>Apresentação</h2>
+    <div class="espacamento2"></div>
     <p>
         Nesta página irei apresentar a estrutura do curso, com cadeiras divididas por semestres e anos
         juntamente com ETCS, ano letivo frequentado, nome de professores e projetos associados.
@@ -28,7 +29,7 @@
         <div class="espacamento2"></div>
         <p>1º Semestre</p>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
+            <div class="espacamento1">
                 {% for cadeira in mapa.ano1.semestre1 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
@@ -38,7 +39,7 @@
 
         <p>2º Semestre</p>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
+            <div class="espacamento1">
                 {% for cadeira in mapa.ano1.semestre2 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
@@ -51,7 +52,7 @@
         <div class="espacamento2"></div>
         <p>1º Semestre</p>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
+            <div class="espacamento1">
                 {% for cadeira in mapa.ano2.semestre1 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
@@ -62,7 +63,7 @@
         <p>2º Semestre</p>
         <div class="espacamento2"></div>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
+            <div class="espacamento1">
                 {% for cadeira in mapa.ano2.semestre2 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
@@ -75,7 +76,7 @@
         <div class="espacamento2"></div>
         <p>1º Semestre</p>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
+            <div class="espacamento1">
                 {% for cadeira in mapa.ano3.semestre1 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
@@ -85,8 +86,8 @@
 
         <p>2º Semestre</p>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
-                {% for cadeira in mapa.ano2.semestre2 %}
+            <div class="espacamento1">
+                {% for cadeira in mapa.ano3.semestre2 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
                 {% endfor %}
@@ -96,30 +97,32 @@
 
         <p>Anual</p>
         <ul style="list-style-type:none;">
-            <div class="espacamento">
+            <div class="espacamento1">
                 {% for cadeira in mapa.ano3.semestre3 %}
                     <a href="{% url 'portfolio:cadeira' cadeira.id %}">{{cadeira.nome}}</a>
                     <div class="espacamento2"></div>
                 {% endfor %}
             </div>  
         </ul>
-        <div class="espacamento"></div>
+        <div class="espacamento1"></div>
 
         <li><h3>Educação</h3></li>
         <p></p>
 
+        <div class="espacamento"></div>
 
 
         <li><h3>Aptidões e competências pessoais</h3></li>
         <p></p>
 
+        <div class="espacamento"></div>
 
         <li><h3>Interesses e hobbies</h3></li>
         <ul style="list-style-type:square">Neste momento os meus hobbies são os seguintes:
             <div class="espacamento">
                 <li>Ginásio;</li>
                 <li>Culinária;</li>
-                <li>Leitura;</li>
+                <li>Leitura.</li>
             </div>
         </ul>
     </ol>

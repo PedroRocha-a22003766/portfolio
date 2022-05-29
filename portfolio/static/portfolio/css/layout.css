@@ -47,18 +47,21 @@ nav a:hover {
     font-weight: bold;
 }
 
-.cadeira a:link {
+.espacamento1 a:link {
     color: blue;
 }
   
-.cadeira a:visited {
+.espacamento1 a:visited {
     color: blue;
 }
   
-.cadeira a:hover {
+.espacamento1 a:hover {
     color: greenyellow;
 }
   
+.espacamento1 a:active {
+    color: rgb(235, 12, 255);
+}
 a:active {
     color: orangered;
 }
@@ -113,8 +116,31 @@ div.espacamento {
     padding: 20px;
 }
 
+div.espacamento1 {
+    padding: 20px;
+}
+
 div.espacamento2 {
-    padding: 1px;
+    padding: 2px;
+}
+
+.dicas {
+    display: flex;
+    justify-content: space-around;
+    align-items: space round;
+    background-color: rgb(238, 248, 248);
+    padding: 50px;
+    flex-flow: row wrap;
+}
+
+.dicas div {
+    width: 250px;
+    height: 275px;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #888888;
+    margin: 10px;
 }
 
 footer {
