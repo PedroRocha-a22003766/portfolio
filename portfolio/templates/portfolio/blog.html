@@ -6,13 +6,17 @@
     <p>Nesta página, <i>Blog</i> irei mostrar 6 posts de comentários que colegas meus fizeram quando realizaram trabalhos/projetos comigo assim como uma pessoa determinada e com predisposição para ajudar o próximo.</p>
     <div class="espacamento"></div>
 
-    <h3>Comentário de colegas que trabalhei</h3>
-    <div class="comentarios">
+    <h3>Comentário de colegas com quem trabalhei:</h3>
+    <div class="comentarios">       
         {% for post in posts %}
-        <div>
-            <h1>{{post.titulo}}</h1>
-            <p>{{post.descricao}}</p>    
-        </div>
+            <div>
+                <h3>{{ post.titulo }}</h3>
+                <br>
+                <p>{{ post.descricao }}</p> 
+                <br>
+                <p>{{ post.autor }}</p>   
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
 

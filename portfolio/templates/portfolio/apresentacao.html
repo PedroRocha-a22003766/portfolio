@@ -112,24 +112,35 @@
         <div class="espacamento1"></div>
 
         <li><h3 id="Educacao">Educação</h3></li>
-        <p></p>
-
+        <ul style="list-style-type:square">Eis a minha formação ao longo dos anos:
+            <div class="espacamento">
+                {% for formacao in formacoes %}
+                    <li>{{ formacao.curso }};</li>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>
+        </ul>
         <div class="espacamento"></div>
 
-
         <li><h3 id="Aptidoes">Aptidões e competências pessoais</h3></li>
-        <p></p>
-
+        <ul style="list-style-type:square;">
+            <div class="espacamento1">
+                {% for competencia in competencias %}
+                    <li>{{ competencia.titulo }};</li>
+                    <div class="espacamento2"></div>
+                {% endfor %}
+            </div>  
+        </ul>
         <div class="espacamento"></div>
 
         <li><h3 id="Interesses">Interesses e hobbies</h3></li>
         <ul style="list-style-type:square">Neste momento os meus hobbies são os seguintes:
             <div class="espacamento">
-                <li>Ginásio;</li>
-                <li>Culinária;</li>
-                <li>Leitura.</li>
+                {% for interesse in interesses %}
+                    <li>{{ interesse.titulo }};</li>
+                    <div class="espacamento2"></div>
+                {% endfor %}
             </div>
         </ul>
     </ol>
-
 {% endblock %}

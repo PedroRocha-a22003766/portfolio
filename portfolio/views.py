@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render
-from .models import Cadeira, Pessoa, Projeto, Competencia, Tecnologia, Post
+from .models import Cadeira, Pessoa, Projeto, Formacao, Competencia, Tecnologia, Post, Interesse, Noticia
 
 # Create your views here.
 
@@ -29,8 +29,12 @@ def apresentacao_view(request):
 
 	for cadeira in cadeiras:
 		map["ano" + str(cadeira.ano)]['semestre' + str(cadeira.semestre)].append(cadeira)
+	
+	competencias = Competencia.objects.all()
+	interesses = Interesse.objects.all()
+	formacoes = Formacao.objects.all()
 
-	context = {'mapa': map}
+	context = {'mapa': map, 'competencias': competencias,'interesses': interesses,'formacoes': formacoes}
 		
 	return render(request, 'portfolio/apresentacao.html', context)
 
@@ -52,7 +56,8 @@ def projetos_view(request):
 
 def web_view(request):
 	tecnologias = Tecnologia.objects.all()
-	context = {'tecnologias': tecnologias}
+	noticias = Noticia.objects.all()
+	context = {'tecnologias': tecnologias, 'noticias' : noticias}
 
 	return render(request, 'portfolio/web.html', context)
 
@@ -66,7 +71,7 @@ def descricaoWeb_view(request, id):
 def blog_view(request):
 	posts = Post.objects.order_by('?')[:6]
 	context = {'posts': posts}	
-	
+
 	return render(request, 'portfolio/blog.html', context)
 
 

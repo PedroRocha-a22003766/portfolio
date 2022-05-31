@@ -3,11 +3,30 @@
 {% block main %}
     <h1>{{ tecnologia.nome }} ({{ tecnologia.acronimo }})</h1>
     <div class="espacamento2"></div>
-    
-    
+    <div class="espacamento2"></div>
+    <p>Nesta página serão abordados conteúdos específicos em relação ao {{ tecnologia.acronimo }} como nome, acrónimo, ano de criação, criador, descrição, logotipo e o link para site oficial.</p> 
 
+    <ul>
+        <div class="espacamento">
+            <li>Nome : {{ tecnologia.nome }};</li>
+            <div class="espacamento2"></div>
+            <li>Acrónimo : {{ tecnologia.acronimo }};</li>
+            <div class="espacamento2"></div>
+            <li>Ano de criação : {{ tecnologia.anoDeCriacao }};</li>
+            <div class="espacamento2"></div>
+            <li>Criador : {{ tecnologia.criador }};</li>
+            <div class="espacamento2"></div>
+            <li>Descrição : {{ tecnologia.descricao }};</li>
+            <div class="espacamento2"></div>
+            <li>Site Oficial : <a href="{{ tecnologia.siteOficial }}">Clique Aqui!</a></li>
+            <div class="espacamento2"></div>
+            <li>Logotipo :</li>
+            {% load static %}
+            <img src="{% static '{{ tecnologia.logotipo }}' %}" alt="Logotipo">
+        </div>
+    </ul>
+    
     <a href="{% url 'portfolio:web' %}" class="espacamento">Voltar</a>
-
 {% endblock %}
 
 

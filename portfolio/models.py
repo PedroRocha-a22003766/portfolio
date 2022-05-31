@@ -41,6 +41,16 @@ class Projeto(models.Model):
         return self.titulo
     
 
+class Formacao(models.Model):
+    curso = models.CharField(max_length = 64)
+    local = models.CharField(default = "", blank = True, max_length = 64)
+    periodo = models.DateField(blank = True)
+    logotipo = models.ImageField(blank = True)
+
+    def __str__(self):
+        return self.curso
+
+
 class Competencia(models.Model):
     titulo = models.CharField(max_length = 64)
     descricao = models.CharField(default = "", blank = True, max_length = 512)
@@ -48,6 +58,16 @@ class Competencia(models.Model):
     disciplinaAplicada = models.ManyToManyField(Cadeira, blank = True)
     tecnologies = models.CharField(default = "", blank = True, max_length = 512)
     linguas = models.CharField(default = "", blank = True, max_length = 512)
+
+    def __str__(self):
+        return self.titulo
+
+
+class Interesse(models.Model):
+    titulo = models.CharField(max_length = 64)
+    descricao = models.CharField(default = "", blank = True, max_length = 512)
+    fotografia = models.ImageField(blank = True)
+    link = models.URLField(blank = True)
 
     def __str__(self):
         return self.titulo
@@ -64,6 +84,15 @@ class Tecnologia(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Noticia(models.Model):
+    titulo = models.CharField(max_length = 64)
+    texto = models.CharField(max_length = 256)
+    foto = models.ImageField(default = "", blank = True)
+    link = models.URLField(default = "", blank = True)
+    
+    def __str__(self):
+        return self.titulo
 
 
 class Post(models.Model):
