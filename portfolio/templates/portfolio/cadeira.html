@@ -19,19 +19,30 @@
                     <div class="espacamento">
                         <li>Nome: {{ professor.nome }}</li>  
                         <li><a href="{{ professor.linkPaginaLusofona }}">Página da Lusófona</a></li>
-                        <li><a href="{{ professor.linkPaginaLinkedin }}">Página do LinkedIn</a></li>  
+                        {% if professor.linkPaginaLinkedin != "" %}
+                        <li><a href="{{ professor.linkPaginaLinkedin }}">Página do LinkedIn</a></li>
+                        {% endif %}
                     </div>   
                 {% endfor %}
+            </ul>
 
-            </ul>
             <li>Projetos:</li>
-            <ul>
-                <div class="espacamento">
-                    {% for projeto in projetos %}
-                        <li>{{ projeto.titulo }}</li>
-                    {% endfor %}
-                </div>
-            </ul>
+            {% if not projetos %}
+                <ul>
+                    <div class="espacamento">
+                        <li>Sem projetos.</li>
+                    </div>
+                </ul>
+                
+            {% else %}
+                <ul>
+                    <div class="espacamento">
+                        {% for projeto in projetos %}
+                            <li>{{ projeto.titulo }}</li>
+                        {% endfor %}
+                    </div>
+                </ul>
+            {% endif %}
         </div>
     </ul>
     

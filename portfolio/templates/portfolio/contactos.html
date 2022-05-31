@@ -6,44 +6,33 @@
     <p>Nesta página disponibilizo diversas informações como links associados ao percurso académico bem como redes sociais, contacto, ano, universidade e logotipo.</p>
     <div class="espacamento"></div>
     <p>Informações:</p>
-    <ul style="list-style-type:square;">
-        <div class="espacamento">
-            {% for perfil in perfis %}
-                <a href= "{{ perfil.linkedin }}">LinkedIn</a>
-                <div class="espacamento2"></div>
-                <a href="{{ perfil.github }}">GitHub</a>
-                <div class="espacamento2"></div>
-                <a href="{{ perfil.facebook }}">Facebook</a>
-                <div class="espacamento2"></div>
-                <a href="{{ perfil.instagram }}">Instagram</a>
-                <div class="espacamento2"></div>
-            {% endfor %}    
-        </div>
-    </ul>
+    <div class="espacamento">
+        <a href= "https://www.linkedin.com/in/pedro-rocha-9a30aa209/">LinkedIn</a>
+        <div class="espacamento2"></div>
+        <a href="https://github.com/PedroRocha-a22003766">GitHub</a>
+        <div class="espacamento2"></div>
+        <a href="https://www.facebook.com/pedro.rocha.9876543210">Facebook</a>
+        <div class="espacamento2"></div>
+        <a href="">Instagram</a>
+        <div class="espacamento2"></div>
+    </div>
+    
     <div class="espacamento"></div>
 
     <h2>Rodapé</h2>
     <div class="espacamento">
-        {% for perfil in perfis %}
-            <a href="{{ perfil.mapaSite }}">Mapa do Site</a>
-            <div class="espacamento2"></div>
-            <p>Contacto : +{{ perfil.contacto }}</p>
-            <div class="espacamento2"></div>
-            <p>Nome Autor : {{ perfil.nome }}</p>
-            <div class="espacamento2"></div>
-            <p>Ano : {{ perfil.ano }}º ano</p>
-            <div class="espacamento2"></div>
-            <p>Universidade : {{ perfil.universidade }}</p>
-            <div class="espacamento2"></div>
-            <p>Logotipo : </p>
-            {% load static %}
-            <img src="{% static 'portfolio/images/logo_ulht.jpg' %}" alt="LogotipoFaculdade">
-        {% endfor %}
-        
+        <a href="">Mapa do Site</a>
+        <div class="espacamento2"></div>
+        <p>Contacto : +351 969 253 565</p>
+        <div class="espacamento2"></div>
+        <p>Autor : Pedro Miguel Martins Rocha</p>
+        <div class="espacamento2"></div>
+        <p>Ano : 2º ano</p>
+        <div class="espacamento2"></div>
+        <p>Universidade : Universidade Lusófona de Humanidades e Tecnologias</p>
+        <div class="espacamento2"></div>
+        <p>Logotipo : </p>
+        {% load static %}
+        <img src="{% static 'portfolio/images/logo_ulht.jpg' %}" alt="LogotipoFaculdade">
     </div>
-            
-    
-
-
 {% endblock %}
-<!--{% url 'https://www.linkedin.com/in/pedro-rocha-9a30aa209/' %}-->

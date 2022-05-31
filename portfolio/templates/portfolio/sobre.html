@@ -1,30 +1,35 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+<div class="ancoras">
+    <a href="#Estrutura">Estrutura Website</a> | <a href="#BaseDados">Descrição Base de Dados / Modelação</a> | <a href="#TecnologiaWebsite">Tecnologias Website</a> | <a href="#PadroesUsados"> Padrões Usados</a> | <a href="#comentario">Comentários</a>
+</div>
+
+<div class="espacamento"></div>
 <ol>
-    <li><h3>Estrutura do Website</h3></li>
+    <li><h3 id="Estrutura">Estrutura do Website</h3></li>
     <div class="espacamento2"></div>
     <p></p>
     <div class="espacamento"></div>
 
-    <li><h3>Descrição da base de dados e sua modelação</h3></li>
+    <li><h3 id="BaseDados">Descrição da base de dados e sua modelação</h3></li>
     <div class="espacamento2"></div>
     <p></p>
     <div class="espacamento"></div>
 
-    <li><h3>Lista de tecnologias usadas na criação do website</h3></li>
+    <li><h3 id="TecnologiaWebsite">Lista de tecnologias usadas na criação do website</h3></li>
     <div class="espacamento2"></div>
     <p></p>
     <div class="espacamento"></div>
 
-    <li><h3>Lista de padrões usados</h3></li>
+    <li><h3 id="PadroesUsados">Lista de padrões usados</h3></li>
     <div class="espacamento2"></div>
     <p></p>
     <div class="espacamento"></div>
 
-    <li><h3>Comentários</h3></li>
+    <li><h3 id="comentario">Comentários</h3></li>
     <div class="espacamento2"></div>
-    <p></p> 
+    <textarea name="message" rows="7" cols="100" placeholder="Insira um comentário construtivo relativamente ao Website!&#128521"></textarea>
     <div class="espacamento"></div>
 </ol>
 

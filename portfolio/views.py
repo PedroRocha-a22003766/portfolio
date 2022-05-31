@@ -1,5 +1,6 @@
+from multiprocessing import context
 from django.shortcuts import render
-from .models import Cadeira, Pessoa, Projeto, Competencia, Tecnologia, Perfil
+from .models import Cadeira, Pessoa, Projeto, Competencia, Tecnologia, Post
 
 # Create your views here.
 
@@ -28,36 +29,45 @@ def apresentacao_view(request):
 
 	for cadeira in cadeiras:
 		map["ano" + str(cadeira.ano)]['semestre' + str(cadeira.semestre)].append(cadeira)
+
+	context = {'mapa': map}
 		
-	return render(request, 'portfolio/apresentacao.html', {'mapa': map})
+	return render(request, 'portfolio/apresentacao.html', context)
 
 
 def cadeira_view(request, id):
 	cadeira = Cadeira.objects.get(pk = id)
-	projetos = Projeto.objects.filter(cadeira = id)
+	projetos = list(Projeto.objects.filter(cadeira = id))
+	context = {'cadeira': cadeira, 'projetos': projetos, 'professores' : cadeira.professores.all() }
 
-	return render(request, 'portfolio/cadeira.html', {'cadeira': cadeira, 'projetos': projetos, 'professores' : cadeira.professores.all() })
+	return render(request, 'portfolio/cadeira.html', context)
 
 
 def projetos_view(request):
 	projetos = Projeto.objects.all()
+	context = {'projetos': projetos}
 
-	return render(request, 'portfolio/projetos.html', {'projetos': projetos})
+	return render(request, 'portfolio/projetos.html', context)
 
 
 def web_view(request):
 	tecnologias = Tecnologia.objects.all()
+	context = {'tecnologias': tecnologias}
 
-	return render(request, 'portfolio/web.html', {'tecnologias': tecnologias})
+	return render(request, 'portfolio/web.html', context)
 
-def descricaoWeb_view(request):
-	tecnologia = Tecnologia.objects.all()
+def descricaoWeb_view(request, id):
+	tecnologia = Tecnologia.objects.get(pk = id)
+	context = {'tecnologia': tecnologia}
 	
-	return render(request, 'portfolio/descricaoWeb.html', {'tecnologia': tecnologia})
+	return render(request, 'portfolio/descricaoWeb.html', context)
 
 
 def blog_view(request):
-	return render(request, 'portfolio/blog.html')
+	posts = Post.objects.order_by('?')[:6]
+	context = {'posts': posts}	
+	
+	return render(request, 'portfolio/blog.html', context)
 
 
 def sobre_view(request):
@@ -65,7 +75,5 @@ def sobre_view(request):
 
 
 def contactos_view(request):
-	perfis = Perfil.objects.all()
-
-	return render(request, 'portfolio/contactos.html', {'perfis': perfis})
+	return render(request, 'portfolio/contactos.html')
 

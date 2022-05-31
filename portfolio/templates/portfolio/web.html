@@ -1,10 +1,14 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h2>Web</h2>
+    <div class="ancoras">
+        <a href="#Web">Web</a> | <a href="#Tecnologias">Tecnologias existentes </a> | <a href="#Sobre">Sobre este Website</a> | <a href="#Laboratorios">Laboratórios</a> | <a href="#Noticias">Notícias</a> | <a href="#Tecnicas">Exemplos e técnicas</a> | <a href="#Quizz">Quizz</a>
+    </div>
+    <div class="espacamento"></div>
+    
+    <h2 id="Web">Web</h2>
     <div class="espacamento2"></div>
-    <p>Nesta página irei abordar as tecnologias existentes a nível de Programação Web bem como técnicas utilizadas
-        como modo de aplicação neste portfólio.
+    <p>Nesta página irei abordar as tecnologias existentes a nível de Programação Web bem como técnicas utilizadas como modo de aplicação neste portfólio.
     </p>
     <div class="espacamento2"></div>
 
@@ -14,26 +18,37 @@
     <div class="espacamento"></div>
 
     <ol>
-        <li><h3>Tecnologias existentes</h3></li>
+        <li><h3 id="Tecnologias">Tecnologias existentes</h3></li>
         <div class="espacamento2"></div>
         <ul style="list-style-type:none;">
             <div class="espacamento1">
                 {% for tecnologia in tecnologias %}
-                    <a href="{% url 'portfolio:descricaoWeb' %}">{{tecnologia.acronimo}}</a>
+                    <a href="{% url 'portfolio:descricaoWeb' tecnologia.id %}">{{ tecnologia.acronimo }}</a>
                     <div class="espacamento2"></div>
                 {% endfor %}
             </div>      
         </ul>
+        <div class="espacamento2"></div>
+
+        <li><h3 id="Sobre">Sobre este Website</h3></li>
+        <ul style="list-style-type:square">
+            <div class="espacamento">
+                <li>Estrutura do site:</li>
+                <li>Diagrama DER:</li>
+                <li>Tecnologias usadas:</li>
+                <li>Padrões usados:</li>
+            </div>
+        </ul>
+        
+        <li><h3 id="Laboratorios">Laboratórios</h3></li>
         <div class="espacamento"></div>
 
-        <li><h3>Sobre este Website</h3></li>
+        <li><h3 id="Noticias">Notícias</h3></li>
         <div class="espacamento"></div>
-        <li><h3>Laboratórios</h3></li>
+
+        <li><h3 id="Tecnicas">Exemplos e técnicas</h3></li>
         <div class="espacamento"></div>
-        <li><h3>Notícias</h3></li>
-        <div class="espacamento"></div>
-        <li><h3>Exemplos e técnicas</h3></li>
-        <div class="espacamento"></div>
-        <li><h3>Quizz</h3></li>
+
+        <li><h3 id="Quizz">Quizz</h3></li>
     </ol>
 {% endblock %}

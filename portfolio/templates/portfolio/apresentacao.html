@@ -1,7 +1,12 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h2>Apresentação</h2>
+    <div class="ancoras">
+        <a href="#Apresentacao">Apresentação</a> | <a href="#Licenciatura">Licenciatura </a> | <a href="#Educacao">Educação</a> | <a href="#Aptidoes"> Aptidões e competências pessoais</a> | <a href="#Interesses">Interesses e hobbies</a>
+    </div>
+    <div class="espacamento"></div>
+
+    <h2 id="Apresentacao">Apresentação</h2>
     <div class="espacamento2"></div>
     <p>
         Nesta página irei apresentar a estrutura do curso, com cadeiras divididas por semestres e anos
@@ -19,7 +24,7 @@
     <div class="espacamento"></div>
 
     <ol>
-        <li><h3>Licenciatura</h3></li>
+        <li><h3 id="Licenciatura">Licenciatura</h3></li>
         <p>Esta página apresenta a lista de cadeiras do curso de Engenharia Informática, organizada por semestre e 
             anos.
         </p>
@@ -106,18 +111,18 @@
         </ul>
         <div class="espacamento1"></div>
 
-        <li><h3>Educação</h3></li>
+        <li><h3 id="Educacao">Educação</h3></li>
         <p></p>
 
         <div class="espacamento"></div>
 
 
-        <li><h3>Aptidões e competências pessoais</h3></li>
+        <li><h3 id="Aptidoes">Aptidões e competências pessoais</h3></li>
         <p></p>
 
         <div class="espacamento"></div>
 
-        <li><h3>Interesses e hobbies</h3></li>
+        <li><h3 id="Interesses">Interesses e hobbies</h3></li>
         <ul style="list-style-type:square">Neste momento os meus hobbies são os seguintes:
             <div class="espacamento">
                 <li>Ginásio;</li>
