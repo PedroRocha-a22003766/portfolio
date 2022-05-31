@@ -75,10 +75,6 @@ def blog_view(request):
 	return render(request, 'portfolio/blog.html', context)
 
 
-def sobre_view(request):
-	return render(request, 'portfolio/sobre.html')
-
-
 def contactos_view(request):
 	return render(request, 'portfolio/contactos.html')
 
