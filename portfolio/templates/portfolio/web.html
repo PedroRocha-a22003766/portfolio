@@ -41,13 +41,85 @@
         </ul>
         
         <li><h3 id="Laboratorios">Laboratórios</h3></li>
+        <div class="espacamento2"></div>
+        <div class="espacamento2"></div>
+        <a href="https://a22003766-pw-labs.herokuapp.com/">Link para os laboratórios de Programação Web!</a>
         <div class="espacamento"></div>
 
         <li><h3 id="Noticias">Notícias</h3></li>
+        <div class="espacamento2"></div>
+        <p>Apresento uma lista de 10 noticias sobre artigos do medium.com que gostei: </p>
+        <div class="espacamento2"></div>
+        <div class="noticias">     
+            {% for noticia in noticias %}
+                <div>
+                    <h3>{{ noticia.titulo }}</h3>
+                    <br>
+                    <p>{{ noticia.texto }}</p> 
+                    <br>
+                    <a href="{{ noticia.link }}">Link da Noticia</a>
+                    <br> 
+                    <p>{{ noticia.foto }}</p>   
+                </div>
+            {% endfor %}
+        </div>
         <div class="espacamento"></div>
 
         <li><h3 id="Tecnicas">Exemplos e técnicas</h3></li>
-        <div class="espacamento"></div>
+        <div class="espacamento">
+            <ul>
+                <li>Técnicas e efeitos que gosto:</li>
+                <div class="espacamento">
+                    <ul>
+                        <li>Boa organização;</li>
+                        <li>Boa tipografia, com contraste;</li>
+                        <li>Design responsivo;</li>
+                        <li>Esquema de cores agradável;</li>
+                        <li>Boa navegação;</li>
+                        <li>Boa imagem de fundo e Interface;</li>
+                        <li>Estilo consistente;</li>
+                        <li>Com espaço;</li>
+                        <li>Boa navegação, hierarquia e cor;</li>
+                        <li>Boa hierarquia num elemento.</li>
+                    </ul>
+                </div>
+
+                <li>Sites que gosto:</li>
+                <div class="espacamento">
+                    <ul>
+                        <li><a href="https://www.cadigal.com.au/">Cadigal</a></li>
+                        <li><a href="https://www.amazon.es/-/pt/?language=pt_PT&ie=UTF8&tag=hydes-21&hvadid=496315069889&hvpos=&hvexid=&hvnetw=g&hvrand=14239851229842899592&hvpone=&hvptwo=&hvqmt=e&hvdev=c&ref=pd_sl_4hqbqbuoel_e">Amazon</a></li>
+                        <li><a href="https://pt.aliexpress.com/?gatewayAdapt=glo2bra">AliExpress</a></li>
+                        <li><a href="https://pt.shein.com/?url_from=ptgooglebrandshein_shein01_srsa_LPT_20210526&cid=13258145513&setid=122293660026&adid=523956859333&pf=GOOGLE&gclid=Cj0KCQjw-daUBhCIARIsALbkjSaOlsu7Z6E-dGCDcaiDK66GFzrtc5d-ELvWNpYpxROiDFy07ks3_00aAmMBEALw_wcB">SHEIN</a></li>
+                        <li><a href="https://www.tesla.com/pt_pt">Tesla</a></li>
+                    </ul>
+                </div>
+
+                <li>Sites que não gosto:</li>
+                <div class="espacamento">
+                    <ul>
+                        <li><a href="https://www.ptservidor.pt/">PTServidor</a></li>
+                        <li><a href="https://www.jorgepires.pt/pt/">Jorge Pires</a></li>
+                        <li><a href="https://www.casaldospatos.com/">Casal dos Patos</a></li>
+                        <li><a href="https://luso-bonsai.com/">Luso Bonsai</a></li>
+                    </ul>
+                </div>
+
+                <li>Tendências modernas de Programação Web:</li>
+                <div class="espacamento">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+
+                <li>Aspetos obsoletos:</li>
+                <div class="espacamento">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
 
         <li><h3 id="Quizz">Quizz</h3></li>
     </ol>

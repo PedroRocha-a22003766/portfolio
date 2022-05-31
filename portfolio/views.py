@@ -56,7 +56,7 @@ def projetos_view(request):
 
 def web_view(request):
 	tecnologias = Tecnologia.objects.all()
-	noticias = Noticia.objects.all()
+	noticias = Noticia.objects.order_by('?')[:10]
 	context = {'tecnologias': tecnologias, 'noticias' : noticias}
 
 	return render(request, 'portfolio/web.html', context)
