@@ -1,7 +1,12 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h2>Projetos...</h2>
+    <div class="ancoras">
+        <a href="#Projetos">Projetos</a> | <a href="#ProjetosPorMim">Projetos realizados por mim</a> | <a href="#ProjetosFinalCurso">Projetos de fim de curso interessantes</a>
+    </div>
+    <div class="espacamento"></div>
+
+    <h2 id="Projetos">Projetos...📑</h2>
     <div class="espacamento2"></div>
     <p>Nesta página irei apresentar todos os projetos que foram realizados por mim, seja pela faculdade, seja por livre vontade.</p>
     <div class="espacamento2"></div>
@@ -9,16 +14,22 @@
     <div class="espacamento"></div>
 
     <ol>
-        <li><h3>...realizados por mim</h3></li>
+        <li><h3 id="ProjetosPorMim">...realizados por mim</h3></li>
         <div class="espacamento">
+            {% for projeto in projetos %}
+                <ul style="list-style-type:square">
+                    <li>{{ projeto.titulo }};</li>
+                </ul> 
+            {% endfor %}
+        </div>
+
+        <li><h3 id="ProjetosFinalCurso">...de fim de curso interessantes</h3></li>
+        <!--<div class="espacamento">
             {% for projeto in projetos %}
                 <ul style="list-style-type:square">
                     <li>{{projeto.titulo}};</li>
                 </ul> 
             {% endfor %}
-        </div>
-
-        <li><h3>...de fim de curso interessantes</h3></li>
+        </div>-->
     </ol>
-
 {% endblock %}
