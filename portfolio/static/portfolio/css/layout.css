@@ -84,8 +84,8 @@ main.home {
 }
 
 article.first {
-    height: 40vh;
-    background: grey;
+    height: 70vh;
+    background: rgb(178, 159, 159);
     padding: 0 4vw;
     text-align: center;
     font-size: 2rem;

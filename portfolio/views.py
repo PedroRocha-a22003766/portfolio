@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cadeira, Pessoa, Projeto, Formacao, Competencia, Tecnologia, Post, Interesse, Noticia
+from .models import Cadeira, Pessoa, Projeto, Formacao, Competencia, Tecnologia, Post, Interesse, Noticia, PontuacaoQuizz, Tfc
 
 # Create your views here.
 
@@ -48,7 +48,8 @@ def cadeira_view(request, id):
 
 def projetos_view(request):
 	projetos = Projeto.objects.all()
-	context = {'projetos': projetos}
+	tfc = Tfc.objects.all()
+	context = {'projetos': projetos, 'tfc' : tfc}
 
 	return render(request, 'portfolio/projetos.html', context)
 
@@ -60,11 +61,22 @@ def web_view(request):
 
 	return render(request, 'portfolio/web.html', context)
 
+
 def descricaoWeb_view(request, id):
 	tecnologia = Tecnologia.objects.get(pk = id)
 	context = {'tecnologia': tecnologia}
 	
 	return render(request, 'portfolio/descricaoWeb.html', context)
+
+
+def quizz_view(request):
+	if request.method == 'POST':
+		n = request.POST['nome']
+		#p = pontuacao_quizz(request)
+		#r = PontuacaoQuizz(nome=n, pontuacao=p)
+		#r.save()
+
+	return render(request, 'portfolio/quizz.html')
 
 
 def blog_view(request):
@@ -76,4 +88,3 @@ def blog_view(request):
 
 def contactos_view(request):
 	return render(request, 'portfolio/contactos.html')
-

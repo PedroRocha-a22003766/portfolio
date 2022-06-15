@@ -85,6 +85,21 @@ class Tecnologia(models.Model):
     def __str__(self):
         return self.nome
 
+class Tfc(models.Model):
+    titulo = models.CharField(max_length = 64)
+    autor = models.ManyToManyField(Pessoa, blank = True)
+    orientador = models.ManyToManyField(Pessoa, blank = True)
+    anoRealizacao = models.IntegerField(default = 2020)
+    sumario = models.CharField(max_length = 64, blank = True)
+    resumo = models.CharField(max_length = 500, blank = True)
+    linkRelatorio = models.URLField(default = "", blank = True)
+    linkGitHub = models.URLField(default = "", blank = True)
+    videoYouTube = models.URLField(default = "", blank = True) 
+
+    def __str__(self):
+        return self.titulo
+        
+
 class Noticia(models.Model):
     titulo = models.CharField(max_length = 64)
     texto = models.CharField(max_length = 256)
@@ -104,3 +119,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class PontuacaoQuizz(models.Model):
+    nome = models.CharField(max_length = 64)
+    pontuacao = models.IntegerField(default = 0)
+
+    def __str__(self):
+        return self.nome
