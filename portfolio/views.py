@@ -1,12 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 from .models import Cadeira, Pessoa, Projeto, Formacao, Competencia, Tecnologia, Post, Interesse, Noticia, PontuacaoQuizz, Tfc
 
 # Create your views here.
+def view_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
+        user = authenticate(
+            request,
+            username = username,
+            password = password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('portfolio:home'))
+        else:
+            return render(request, 'portfolio/login.html', {'message': 'Credenciais invalidas.'})
+
+    return render(request, 'portfolio/login.html')
+
+def view_logout(request):
+    logout(request)
+
+    return render(request, 'portfolio/login.html', {'message': 'Foi desconetado.'})
+
+
+@login_required	
 def home_page_view(request):
 	return render(request, 'portfolio/home.html')
 
 
+@login_required
 def apresentacao_view(request):
 	cadeiras = Cadeira.objects.all()
 
@@ -45,15 +73,16 @@ def cadeira_view(request, id):
 
 	return render(request, 'portfolio/cadeira.html', context)
 
-
+@login_required
 def projetos_view(request):
 	projetos = Projeto.objects.all()
-	tfc = Tfc.objects.all()
-	context = {'projetos': projetos, 'tfc' : tfc}
+	tfcs = Tfc.objects.all()
+	context = {'projetos': projetos, 'tfcs' : tfcs}
 
 	return render(request, 'portfolio/projetos.html', context)
 
 
+@login_required
 def web_view(request):
 	tecnologias = Tecnologia.objects.all()
 	noticias = Noticia.objects.order_by('?')[:10]
@@ -86,5 +115,6 @@ def blog_view(request):
 	return render(request, 'portfolio/blog.html', context)
 
 
+@login_required
 def contactos_view(request):
 	return render(request, 'portfolio/contactos.html')

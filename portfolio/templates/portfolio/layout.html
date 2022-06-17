@@ -11,9 +11,11 @@
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'portfolio/images/papel.ico' %}">
         {% load static %}
         <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'portfolio/js/layout.js' %}">
         <title>Portfólio Digital</title>
     </head> 
-    <body>
+    <body onload="initTime();">
         <header>
             <div>Pedro Rocha 🎓</div>
             <nav>
@@ -30,7 +32,8 @@
             {% block main %}
             {% endblock main %}
         </main>
-          
+        <p id="timer"></p>
+
         <footer>
             ULHT, 2022
         </footer>        

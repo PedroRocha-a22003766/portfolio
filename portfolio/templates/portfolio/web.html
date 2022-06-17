@@ -34,9 +34,24 @@
         <ul style="list-style-type:square">
             <div class="espacamento">
                 <li>Estrutura do site:</li>
+                {% load static %}
+                <img src="{% static 'portfolio/images/mapaSite.png' %}" alt="MapaSite">
+                <div class="espacamento"></div>
                 <li>Diagrama DER:</li>
-                <li>Tecnologias usadas:</li>
+                <div class="espacamento"></div>
                 <li>Padrões usados:</li>
+                <div class="espacament2"></div>
+                <p><b>HTTP:</b></p>
+                <div class="espacamento">O Hypertext Transfer Protocol, HTTP,  é um protocolo de comunicação utilizado para sistemas de informação distribuídos e colaborativos. Este é a base para a comunicação de dados da World Wide Web (WWW). O Hipertexto é o texto estruturado que utiliza ligações lógicas entre nós contendo texto.</div>
+                <div class="espacament2"></div>
+
+                <p><b>MVC:</b></p>
+                <div class="espacamento">MVC é o acrónimo de <i>Model-View-Controller</i> é um padrão de projeto de software, ou padrão de arquitetura de software desenvolvido na década de 70, focado no uso de código e a separação de conceitos em três camadas.</div>
+                <div class="espacament2"></div>
+
+                <p><b>AJAX:</b></p>
+                <div class="espacamento">Ajax é o uso metodológico de tecnologias como Javascript e XML, providas por navegadores, para tornar páginas Web mais interativas com o utilizador, utilizando-se de solicitações assíncronas de informações.</div>
+                <div class="espacament2"></div>
             </div>
         </ul>
         
@@ -130,6 +145,6 @@
         <li><h3 id="Quizz">Quizz</h3></li>
         <div class="espacamento2"></div>
         <div class="espacamento2"></div>
-        <a href="{% url 'portfolio:quizz' %}">Clique aqui para iniciar o Quizz!</a>
+        <a href="{% url 'portfolio:quizz' %}"><input type="button" value="Clique aqui para iniciar o Quizz!😁"></a>
     </ol>
 {% endblock %}

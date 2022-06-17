@@ -21,8 +21,22 @@
             <li>Site Oficial : <a href="{{ tecnologia.siteOficial }}">Clique Aqui para aceder ao site oficial!</a></li>
             <div class="espacamento2"></div>
             <li>Logotipo :</li>
-            {% load static %}
-            <img src="{% static '{{ tecnologia.logotipo }}' %}" alt="Logotipo">
+            {% if {{ tecnologia.nome }} equal "HTML" %}
+                {% load static %}
+                <img src="{% static 'portfolio/images/html.png' %}" alt="LogotipoHTML">
+            {% elif {{ tecnologia.nome }} equal "CSS" %}
+                {% load static %}
+                <img src="{% static 'portfolio/images/css.png' %}" alt="LogotipoCSS">
+            {% elif {{ tecnologia.nome }} equal "Javascript" %}
+                {% load static %}
+                <img src="{% static 'portfolio/images/js.png' %}" alt="LogotipoJS">
+            {% elif {{ tecnologia.nome }} equal "Python" %}
+                {% load static %}
+                <img src="{% static 'portfolio/images/pythonnn.png' %}" alt="LogotipoPy">
+            {% elif {{ tecnologia.nome }} equal "Django" %}
+                {% load static %}
+                <img src="{% static 'portfolio/images/django.png' %}" alt="LogotipoDjango">
+            {% endif %} 
         </div>
     </ul>
     

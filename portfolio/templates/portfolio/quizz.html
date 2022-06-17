@@ -1,14 +1,207 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <form action="quizz.html" method="POST">
+        <fieldset class="borda">
+            <legend>Quizz sobre Programação Web📑</legend>
+            <div class="espacamento2"></div>
+            <div class="espacamento2"></div>
 
-        <a href="{% url 'portfolio:web' %}" role="button" class="btn btn-warning">Cancelar</a>
-        <input type="submit" value="Gravar" class="btn btn-success" >
-        <a href="{% url 'tarefas:apaga' tarefa_id %}" role="button" class="btn btn-danger">Apagar</a>
+            <fieldset class="formulario">
+                <legend>Dados🖥️</legend>
+                <div class="espacamento">
+                    <label for="nome">Nome: </label>
+                    <div class="espacamento2"></div>
+                    <input type="text" id="nome" name="nome" placeholder="Insira o seu nome" autofocus required size="50">
+                    <div class="espacamento2"></div>
+
+                    <label for="apelido">Apelido: </label>
+                    <div class="espacamento2"></div>
+                    <input type="text" id="apelido" name="apelido" placeholder="Insira o seu apelido" required size="50">
+                    <div class="espacamento2"></div>
+
+                    <label for="email">Email: </label>
+                    <div class="espacamento2"></div>
+                    <input type="email" id="email" name="email" placeholder="Insira o seu email" autocomplete="off" required size="50">
+                    <div class="espacamento2"></div>
+                </div>
+            </fieldset>
+
+            <fieldset class="perguntas">
+                <legend>Questões📄</legend>
+                <ol>
+                    <div class="espacamento">
+                        <li>
+                            <p>Qual destas linguagens corresponde ao termo <i>Back-end</i> ?</p>
+                            <div class="espacamento2"></div>
+                            <input type="radio" id="html" name="linguagens" value="html">
+                            <label for="html">HTML</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="radio" id="css" name="linguagens" value="css">
+                            <label for="css">CSS</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="radio" id="python" name="linguagens" value="python">
+                            <label for="python">Python</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="radio" id="c++" name="linguagens" value="c++">
+                            <label for="c++">C++</label>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Para além do <i>Django</i> que outros frameworks pertencem à linguagem Python?</p>
+                            <div class="espacamento2"></div>
+                            <input type="checkbox" id="linguagem1" name="linguagem1" value="Angular">
+                            <label for="linguagem1"> Angular</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem2" name="linguagem2" value="Flask">
+                            <label for="linguagem2"> Flask</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem3" name="linguagem3" value="React">
+                            <label for="linguagem3"> React</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem4" name="linguagem4" value="Bootstrap">
+                            <label for="linguagem4"> Bootstrap</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem5" name="linguagem5" value="Web2py">
+                            <label for="linguagem5"> Web2py</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem6" name="linguagem6" value="Meteor">
+                            <label for="linguagem6"> Meteor</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem7" name="linguagem7" value="Vue">
+                            <label for="linguagem7"> Vue</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem8" name="linguagem8" value="CherryPy">
+                            <label for="linguagem8"> CherryPy</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem9" name="linguagem9" value="Bottle">
+                            <label for="linguagem9"> Bottle</label>
+                            <div class="espacamento2"></div>
+
+                            <input type="checkbox" id="linguagem10" name="linguagem10" value="Foundation">
+                            <label for="linguagem10"> Foundation</label>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>           
+                        </li>
+
+                        <li>
+                            <p>Em que ano surgiu o Javascript?</p>
+                            <div class="espacamento2"></div>
+                            <label for="date">Ano de </label>
+                            <input type="date" id="datemin" name="date" min="1980-01-01" max="2000-01-01"> .
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Qual a cor predominante no logotipo do HTML?</p>
+                            <div class="espacamento2"></div>
+                            <label for="corBandeira">A cor é :</label>
+                            <input type="color" id="corBandeira" name="corBandeira" value="#ffffff"> .
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Qual das seguintes afirmações é verdadeira?</p>
+                            <div class="espacamento2"></div>
+                            <label for="frase">Boa prática na Web é : </label>
+                            <select id="frase" name="Boa Prática">
+                                <option value="Navegação">Boa navegação</option>
+                                <option value="Script">Tag script no ficheiro HTML</option>
+                                <option value="Informação">Muita informação</option>
+                                <option value="Style">Tag style no ficheiro HTML</option>
+                            </select> .
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Qual das seguintes afirmações é verdadeira?</p>
+                            <div class="espacamento2"></div>
+                            HTML é uma linguagem de ...
+                            <input list="linguagem" name="linguagems">
+                            <datalist id="linguagem">
+                                <option value="programação">
+                                <option value="marcação">
+                                <option value="realização de jogos">
+                                <option value="data science">
+                                <option value="mobile development">
+                            </datalist> .
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>                           
+                        </li>
+
+                        <li>
+                            <p>Qual o símbolo usado em CSS designado <i>universal</i> ?</p>
+                            <div class="espacamento2"></div>
+                            <label for="frase2">O símbolo usado é : </label>
+                            <input type="text" id="frase2" name="frase2" maxlength="10" size="10">.
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Quantos frameworks tem, no total, o CSS?</p>
+                            <div class="espacamento2"></div>
+                            <label for="frameworks">CSS tem : </label>
+                            <input type="range" min="10" max="70"
+                            name = "frameworks" value="27"
+                            oninput = "frameworksN.value = parseInt(frameworks.value)">
+                            <output name = "frameworksN" for = "frameworks">27</output>  frameworks.
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Complete a seguinte frase.</p>
+                            <div class="espacamento2"></div>
+                            <label for="frase">Para guardar um video num ficheiro html devo usar a tag </label>
+                            <input type="text" id="frase" name="frase" maxlength="10" size="10" autocomplete="off">.
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                        <li>
+                            <p>Complete a seguinte frase.</p>
+                            <div class="espacamento2"></div>
+                            <label for="frase3">Conseguimos aceder à base de dados através do comando </label>
+                            <input type="text" id="frase3" name="frase3" maxlength="10" size="10">.
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                            <div class="espacamento2"></div>
+                        </li>
+
+                    </div>
+                </ol>
+            </fieldset>
+        </fieldset>
+
+        <input type="submit" value="Submeter Quizz!" class="btn btn-success">
     </form>
+    <div class="espacamento"></div>
 
 
     <a href="{% url 'portfolio:web' %}" class="espacamento">Voltar</a>
