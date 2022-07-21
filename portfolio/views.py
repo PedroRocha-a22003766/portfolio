@@ -29,12 +29,12 @@ def view_logout(request):
     return render(request, 'portfolio/login.html', {'message': 'Foi desconetado.'})
 
 
-@login_required	
+
 def home_page_view(request):
 	return render(request, 'portfolio/home.html')
 
 
-@login_required
+
 def apresentacao_view(request):
 	cadeiras = Cadeira.objects.all()
 
@@ -73,7 +73,7 @@ def cadeira_view(request, id):
 
 	return render(request, 'portfolio/cadeira.html', context)
 
-@login_required
+
 def projetos_view(request):
 	projetos = Projeto.objects.all()
 	tfcs = Tfc.objects.all()
@@ -82,7 +82,7 @@ def projetos_view(request):
 	return render(request, 'portfolio/projetos.html', context)
 
 
-@login_required
+
 def web_view(request):
 	tecnologias = Tecnologia.objects.all()
 	noticias = Noticia.objects.order_by('?')[:10]

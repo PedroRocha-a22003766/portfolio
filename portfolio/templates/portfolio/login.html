@@ -1,18 +1,18 @@
 {% extends "portfolio/layout.html" %}
 
 {% block main %}
-    <h2>Login</h2>
+  <h2>Login</h2>
 
-    {% if message %}
-      <p> {{ message }} </p>
-    {% endif %}
+  {% if message %}
+    <p> {{ message }} </p>
+  {% endif %}
 
-    <form action="" method="post">
-      {% csrf_token %}
-      <input type="text" name="username" placeholder="Insert username">
-      <input type="password" name="password" placeholder="Insert password">
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Insert username">
+    <input type="password" name="password" placeholder="Insert password">
 
-      <input type="submit" value="Login!">
-    </form>  
+    <input type="submit" value="Login!">
+  </form>  
 
 {% endblock main %}
