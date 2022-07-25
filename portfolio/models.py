@@ -87,8 +87,8 @@ class Tecnologia(models.Model):
 
 class Tfc(models.Model):
     titulo = models.CharField(max_length = 64)
-    autor = models.ManyToManyField(Pessoa, blank = True)
-    orientador = models.ManyToManyField(Pessoa, blank = True)
+    autor = models.ManyToManyField(Pessoa, blank = True, related_name='tfc_pessoa_autor')
+    orientador = models.ManyToManyField(Pessoa, blank = True, related_name='tfc_pessoa_orientador')
     anoRealizacao = models.IntegerField(default = 2020)
     sumario = models.CharField(max_length = 64, blank = True)
     resumo = models.CharField(max_length = 500, blank = True)
