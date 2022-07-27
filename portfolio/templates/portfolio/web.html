@@ -33,11 +33,11 @@
         <li><h3 id="Sobre">Sobre este Website</h3></li>
         <ul style="list-style-type:square">
             <div class="espacamento">
-                <li>Estrutura do site:</li>
+                <!--<li>Estrutura do site:</li>
                 {% load static %}
                 <img src="{% static 'portfolio/images/mapaSite.png' %}" alt="MapaSite">
                 <div class="espacamento"></div>
-                <li>Diagrama DER:</li>
+                <li>Diagrama DER:</li>-->
                 <div class="espacamento"></div>
                 <li>Padrões usados:</li>
                 <div class="espacament2"></div>
@@ -74,7 +74,8 @@
                     <br>
                     <a href="{{ noticia.link }}">Link da Noticia</a>
                     <br> 
-                    <p>{{ noticia.foto }}</p>   
+                    {% load static %}
+                    <img src="/portfolio/static/portfolio/images/{{ noticia.foto }}" style="max-height:90px">
                 </div>
             {% endfor %}
         </div>

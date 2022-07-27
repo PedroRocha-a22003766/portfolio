@@ -84,9 +84,9 @@ main.home {
 }
 
 article.first {
-    height: 70vh;
-    background: rgb(178, 159, 159);
-    padding: 0 4vw;
+    height: 40vh;
+    background: rgb(215, 185, 185);
+    padding: 5vw 4vw;
     text-align: center;
     font-size: 2rem;
 }
@@ -178,6 +178,12 @@ fieldset.formulario {
   
 fieldset.perguntas {
     background-color: aliceblue;
+}
+
+.timer {
+    align-items: center;
+    font-size: 30px;
+    background-color: antiquewhite;
 }
 
 footer {

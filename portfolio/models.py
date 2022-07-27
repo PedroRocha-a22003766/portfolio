@@ -1,4 +1,3 @@
-from email.policy import default
 from statistics import mode
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -23,7 +22,7 @@ class Cadeira(models.Model):
     topicosAbordados = models.CharField(default = "", blank = True, max_length = 1024)
     ranking = models.IntegerField(default = 3, choices = [(1, "1 estrela"), (2, "2 estrelas"),(3, "3 estrelas"), (4, "4 estrelas"), (5, "5 estrelas")])
     linkCadeira = models.URLField(default = "", blank = True)
-    professores = models.ManyToManyField(Pessoa)
+    professores = models.ManyToManyField(Pessoa, blank = True)
     
     def __str__(self):
         return self.nome
@@ -87,8 +86,8 @@ class Tecnologia(models.Model):
 
 class Tfc(models.Model):
     titulo = models.CharField(max_length = 64)
-    autor = models.ManyToManyField(Pessoa, blank = True, related_name='tfc_pessoa_autor')
-    orientador = models.ManyToManyField(Pessoa, blank = True, related_name='tfc_pessoa_orientador')
+    autor = models.ManyToManyField(Pessoa, blank = True, related_name='tfc_autor')
+    orientador = models.ManyToManyField(Pessoa, blank = True, related_name='tfc_orientador')
     anoRealizacao = models.IntegerField(default = 2020)
     sumario = models.CharField(max_length = 64, blank = True)
     resumo = models.CharField(max_length = 500, blank = True)

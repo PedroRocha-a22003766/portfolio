@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+
 from .models import Cadeira, Pessoa, Projeto, Formacao, Competencia, Tecnologia, Post, Interesse, Noticia, PontuacaoQuizz, Tfc
 
 # Create your views here.
@@ -32,7 +33,6 @@ def view_logout(request):
 
 def home_page_view(request):
 	return render(request, 'portfolio/home.html')
-
 
 
 def apresentacao_view(request):
@@ -82,7 +82,6 @@ def projetos_view(request):
 	return render(request, 'portfolio/projetos.html', context)
 
 
-
 def web_view(request):
 	tecnologias = Tecnologia.objects.all()
 	noticias = Noticia.objects.order_by('?')[:10]
@@ -99,13 +98,60 @@ def descricaoWeb_view(request, id):
 
 
 def quizz_view(request):
-	if request.method == 'POST':
-		n = request.POST['nome']
-		#p = pontuacao_quizz(request)
-		#r = PontuacaoQuizz(nome=n, pontuacao=p)
-		#r.save()
+    p = 0
 
-	return render(request, 'portfolio/quizz.html')
+    if request.method == 'POST':
+        n = request.POST['nome']
+        p = pontuacao_quizz(request)
+        r = PontuacaoQuizz(nome = n, pontos = p)
+        r.save()
+        desenha_grafico_resultados(r)
+
+    context = {'pontos': p}
+
+    return render(request, 'portfolio/quizz.html', context)
+
+
+def pontuacao_quizz(request):
+    pontos = 0
+    form = request.POST
+
+    if form['p1'] == 'Python':
+        pontos += 1
+
+    if form['p2'] == 'Web2py':
+        pontos += 1
+
+    if form['p3'] == '1995':
+        pontos += 1
+
+    if form['p4'] == 'Boa navegação':        
+	     pontos += 1
+
+    ##if form['p5'] == 'marcação':
+        ##pontos += 1
+
+    ##if form['p6'] == '53':
+        ##pontos += 1	
+
+	##if form['p7'] == '<iframe>':
+        ##pontos += 1
+	
+    ##return pontos
+
+
+def desenha_grafico_resultados():
+    pontuacoes = sorted(PontuacaoQuizz.objects.all(), key=lambda x: x.pontos, reverse=True)
+
+    pessoas_x = []
+    pontos_y = []
+
+    for resposta in pontuacoes:
+        pessoas_x.append(resposta.nome)
+        pontos_y.append(resposta.pontos)
+
+    pessoas_x.reverse()
+    pontos_y.reverse()
 
 
 def blog_view(request):

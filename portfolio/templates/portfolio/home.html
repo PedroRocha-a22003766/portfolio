@@ -1,4 +1,16 @@
 {% extends 'portfolio/layout.html' %}
+<script>
+    fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+    .then(resp => resp.json())
+    .then(data =>{
+        const tempmin = data.data[0].tMin
+        const tempmax = data.data[0].tMax
+        const nome = data.data[0].n
+
+        document.getElementById('temperatura_minima').innerHTML = 'Temperatura Mínima: ' + tempmin + 'ºC'
+        document.getElementById('temperatura_maxima').innerHTML = 'Temperatura Máxima: ' + tempmax + 'ºC'
+    })
+</script>
 
 {% block main %}
     <main class="home"></main>
@@ -46,6 +58,6 @@
     </p>
         
     {% load static %}
-    <img src="{% static 'portfolio/images/imagem.png' %}" alt="FotoPerfil">
+    <center><img src="{% static 'portfolio/images/imagem.png' %}" alt="FotoPerfil"></center>
     
 {% endblock %}

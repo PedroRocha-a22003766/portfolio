@@ -56,44 +56,24 @@
                         <li>
                             <p>Para além do <i>Django</i> que outros frameworks pertencem à linguagem Python?</p>
                             <div class="espacamento2"></div>
-                            <input type="checkbox" id="linguagem1" name="linguagem1" value="Angular">
+                            <input type="radio" id="linguagem1" name="linguagens" value="Angular">
                             <label for="linguagem1"> Angular</label>
                             <div class="espacamento2"></div>
 
-                            <input type="checkbox" id="linguagem2" name="linguagem2" value="Flask">
+                            <input type="radio" id="linguagem2" name="linguagens" value="Flask">
                             <label for="linguagem2"> Flask</label>
                             <div class="espacamento2"></div>
 
-                            <input type="checkbox" id="linguagem3" name="linguagem3" value="React">
+                            <input type="radio" id="linguagem3" name="linguagens" value="React">
                             <label for="linguagem3"> React</label>
                             <div class="espacamento2"></div>
 
-                            <input type="checkbox" id="linguagem4" name="linguagem4" value="Bootstrap">
+                            <input type="radio" id="linguagem4" name="linguagens" value="Bootstrap">
                             <label for="linguagem4"> Bootstrap</label>
                             <div class="espacamento2"></div>
 
-                            <input type="checkbox" id="linguagem5" name="linguagem5" value="Web2py">
+                            <input type="radio" id="linguagem5" name="linguagens" value="Web2py">
                             <label for="linguagem5"> Web2py</label>
-                            <div class="espacamento2"></div>
-
-                            <input type="checkbox" id="linguagem6" name="linguagem6" value="Meteor">
-                            <label for="linguagem6"> Meteor</label>
-                            <div class="espacamento2"></div>
-
-                            <input type="checkbox" id="linguagem7" name="linguagem7" value="Vue">
-                            <label for="linguagem7"> Vue</label>
-                            <div class="espacamento2"></div>
-
-                            <input type="checkbox" id="linguagem8" name="linguagem8" value="CherryPy">
-                            <label for="linguagem8"> CherryPy</label>
-                            <div class="espacamento2"></div>
-
-                            <input type="checkbox" id="linguagem9" name="linguagem9" value="Bottle">
-                            <label for="linguagem9"> Bottle</label>
-                            <div class="espacamento2"></div>
-
-                            <input type="checkbox" id="linguagem10" name="linguagem10" value="Foundation">
-                            <label for="linguagem10"> Foundation</label>
                             <div class="espacamento2"></div>
                             <div class="espacamento2"></div>
                             <div class="espacamento2"></div>           
@@ -104,16 +84,6 @@
                             <div class="espacamento2"></div>
                             <label for="date">Ano de </label>
                             <input type="date" id="datemin" name="date" min="1980-01-01" max="2000-01-01"> .
-                            <div class="espacamento2"></div>
-                            <div class="espacamento2"></div>
-                            <div class="espacamento2"></div>
-                        </li>
-
-                        <li>
-                            <p>Qual a cor predominante no logotipo do HTML?</p>
-                            <div class="espacamento2"></div>
-                            <label for="corBandeira">A cor é :</label>
-                            <input type="color" id="corBandeira" name="corBandeira" value="#ffffff"> .
                             <div class="espacamento2"></div>
                             <div class="espacamento2"></div>
                             <div class="espacamento2"></div>
@@ -152,16 +122,6 @@
                         </li>
 
                         <li>
-                            <p>Qual o símbolo usado em CSS designado <i>universal</i> ?</p>
-                            <div class="espacamento2"></div>
-                            <label for="frase2">O símbolo usado é : </label>
-                            <input type="text" id="frase2" name="frase2" maxlength="10" size="10">.
-                            <div class="espacamento2"></div>
-                            <div class="espacamento2"></div>
-                            <div class="espacamento2"></div>
-                        </li>
-
-                        <li>
                             <p>Quantos frameworks tem, no total, o CSS?</p>
                             <div class="espacamento2"></div>
                             <label for="frameworks">CSS tem : </label>
@@ -183,26 +143,17 @@
                             <div class="espacamento2"></div>
                             <div class="espacamento2"></div>
                         </li>
-
-                        <li>
-                            <p>Complete a seguinte frase.</p>
-                            <div class="espacamento2"></div>
-                            <label for="frase3">Conseguimos aceder à base de dados através do comando </label>
-                            <input type="text" id="frase3" name="frase3" maxlength="10" size="10">.
-                            <div class="espacamento2"></div>
-                            <div class="espacamento2"></div>
-                            <div class="espacamento2"></div>
-                        </li>
-
                     </div>
                 </ol>
             </fieldset>
         </fieldset>
-
+        <div class="espacamento"></div>
         <input type="submit" value="Submeter Quizz!" class="btn btn-success">
     </form>
-    <div class="espacamento"></div>
+    <div class="espacamento2"></div>
 
+    <p>Obteve: {{ pontos }} pontos</p>
+    <div class="espacamento"></div>
 
     <a href="{% url 'portfolio:web' %}" class="espacamento">Voltar</a>
 
