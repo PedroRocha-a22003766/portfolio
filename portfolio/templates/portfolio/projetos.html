@@ -23,13 +23,37 @@
             {% endfor %}
         </div>
 
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'portfolio:novo_projeto' %}" class="button">Novo Projeto</a>
+        {% endif %}
+        <div class="espacamento"></div>
+
         <li><h3 id="ProjetosFinalCurso">...de fim de curso interessantes</h3></li>
         <div class="espacamento">
-            {% for tfc in tfcs %}
-                <ul style="list-style-type:square">
-                    <li>{{tfc.titulo}};</li>
-                </ul> 
-            {% endfor %}
+            <div class="tfc">       
+                {% for tfc in tfcs %}
+                    <div>
+                        <h3>{{ tfc.titulo }}</h3>
+                        <br>
+                        <p>{{ tfc.resumo }}</p> 
+                        <br>
+                        {% for autor in tfc.autores.all %}
+                            {{ autor }}
+                        {% endfor %}
+    
+                        {% for orientador in tfc.orientadores.all %}
+                            {{ orientador }}
+                        {% endfor %}
+                        <a href="{{ tfc.linkRelatorio }}  ">Relatorio</a>
+                        <a href="{{ tfc.linkgithub }} ">Github</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
+        
+        <div class="espacamento"></div>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'portfolio:novo_tfc' %}" class="button">Novo Tfc</a>
+        {% endif %}
     </ol>
 {% endblock %}

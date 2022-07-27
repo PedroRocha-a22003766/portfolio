@@ -35,8 +35,6 @@ class CadeiraForm(ModelForm):
     nome = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titulo do post'})
     ano = forms.NumberInput(attrs={'class': 'form-control', 'max': 3, 'min': 1})
     descricao = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'nome'})
-    docente_teorica = forms.ModelChoiceField(queryset = Cadeira.professores.objects.all())
-    docentes_praticas = forms.ModelChoiceField(queryset = Cadeira.professores.objects.all())
     projetos = forms.ModelChoiceField(queryset=Projeto.objects.all())
     classificacao = forms.NumberInput(attrs={'class': 'form-control', 'max': 5, 'min': 1})
 
@@ -84,8 +82,8 @@ class TfcForm(ModelForm):
         }
 
     nome = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'nome'})
-    autores = forms.ModelMultipleChoiceField(queryset=Tfc.autor.objects.all())
-    orientadores = forms.ModelMultipleChoiceField(queryset=Cadeira.professores.objects.all())
+    autores = forms.ModelMultipleChoiceField(queryset = Pessoa.objects.all())
+    orientadores = forms.ModelMultipleChoiceField(queryset = Pessoa.objects.all())
     ano = forms.ImageField()
     titutlo = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titulo'})
     description = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'})

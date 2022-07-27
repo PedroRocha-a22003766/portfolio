@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 
 from .models import Cadeira, Pessoa, Projeto, Formacao, Competencia, Tecnologia, Post, Interesse, Noticia, PontuacaoQuizz, Tfc
+from .forms import CadeiraForm, ProjetoForm
 
 # Create your views here.
 def view_login(request):
@@ -24,11 +25,11 @@ def view_login(request):
 
     return render(request, 'portfolio/login.html')
 
+
 def view_logout(request):
     logout(request)
 
     return render(request, 'portfolio/login.html', {'message': 'Foi desconetado.'})
-
 
 
 def home_page_view(request):
@@ -74,12 +75,118 @@ def cadeira_view(request, id):
 	return render(request, 'portfolio/cadeira.html', context)
 
 
+@login_required
+def edita_cadeira_view(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id = cadeira_id)
+    form = CadeiraForm(request.POST or None, instance = cadeira)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:cadeira'))
+
+    context = {'form': form, 'cadeira_id': cadeira_id}
+
+    return render(request, 'portfolio/editar_cadeira.html', context)
+
+
+@login_required
+def apaga_cadeira_view(request, cadeira_id):
+    Cadeira.objects.get(id = cadeira_id).delete()
+
+    return HttpResponseRedirect(reverse('portfolio:cadeira'))
+
+
+def nova_cadeira_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form = CadeiraForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:cadeira'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/nova_cadeira.html', context)
+
+
 def projetos_view(request):
 	projetos = Projeto.objects.all()
 	tfcs = Tfc.objects.all()
+
 	context = {'projetos': projetos, 'tfcs' : tfcs}
 
 	return render(request, 'portfolio/projetos.html', context)
+
+
+@login_required
+def edita_projeto_view(request, projeto_id):
+    projeto = Projeto.objects.get(id = projeto_id)
+    form = ProjetoForm(request.POST or None, instance = projeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'projeto_id': projeto_id}
+
+    return render(request, 'portfolio/editar_projeto.html', context)
+
+
+@login_required
+def apaga_projeto_view(request, projeto_id):
+    Projeto.objects.get(id = projeto_id).delete()
+
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+
+def novo_projeto_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+    form = ProjetoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novo_projeto.html', context)
+
+
+@login_required
+def edita_tfc_view(request, tfc_id):
+    tfc = Tfc.objects.get(id = tfc_id)
+    form = ProjetoForm(request.POST or None, instance = tfc)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'tfc_id': tfc_id}
+
+    return render(request, 'portfolio/editar_tfc.html', context)
+
+
+@login_required
+def apaga_tfc_view(request, tfc_id):
+    Tfc.objects.get(id = tfc_id).delete()
+
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+
+def novo_tfc_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+    form = ProjetoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novo_projeto.html', context)
 
 
 def web_view(request):
@@ -161,6 +268,5 @@ def blog_view(request):
 	return render(request, 'portfolio/blog.html', context)
 
 
-@login_required
 def contactos_view(request):
 	return render(request, 'portfolio/contactos.html')

@@ -1,0 +1,14 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h2>Nova Cadeira</h2>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div class="espacamento"></div>
+        <a href="{% url 'portfolio:apresentacao' %}">Cancelar</a>
+        <input type="submit" value="Gravar">
+    </form>
+{% endblock %}

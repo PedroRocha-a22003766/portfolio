@@ -62,10 +62,10 @@ nav a:hover {
 .espacamento1 a:active {
     color: rgb(235, 12, 255);
 }
+
 a:active {
     color: orangered;
 }
-
 
 main {
     height: 80vh;
@@ -85,6 +85,7 @@ main.home {
 
 article.first {
     height: 40vh;
+    color: white;;
     background: rgb(215, 185, 185);
     padding: 5vw 4vw;
     text-align: center;
@@ -184,6 +185,25 @@ fieldset.perguntas {
     align-items: center;
     font-size: 30px;
     background-color: antiquewhite;
+}
+
+.tfc {
+    display: flex;
+    justify-content: space-around;
+    align-items: space round;
+    background-color: rgb(238, 248, 248);
+    padding: 50px;
+    flex-flow: row wrap;
+}
+
+.tfc div {
+    width: 300px;
+    height: 350px;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #888888;
+    margin: 10px;
 }
 
 footer {
